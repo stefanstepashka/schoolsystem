@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ teacher.name }}</h1>
+  <p>Employee ID: {{ teacher.employee_id }}</p>
+  <a href="{% url 'teacher_update' pk=teacher.pk %}">Edit</a>
+{% endblock %}

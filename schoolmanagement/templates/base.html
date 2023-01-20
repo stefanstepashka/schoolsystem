@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Management System</title>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="{% url 'class_list' %}">Classes</a>
+        <a href="{% url 'teacher_list' %}"> Teachers</a>
+        <a href="{% url 'student_list' %}"> Students </a>
+        <a href="{% url 'enroll' %}"> Enroll </a>
+    </nav>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    Copyright ©  School Management System
+</footer>
+
+</body>
+</html>

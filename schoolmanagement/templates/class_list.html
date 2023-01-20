@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Classes</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+     {% for cls in classes %}
+        <tr>
+            <h4>
+          <td>{{ cls.name }}</td>
+          <td>
+            <a href="{% url 'class_edit' cls.pk %}">Edit</a>
+          </td>
+            </h4>
+        </tr>
+      <a href="{% url 'class_detail' pk=cls.id %}">{{ cls.name }}</a>
+      {% endfor %}
+
+
+    </tbody>
+  </table>
+  <a href="{% url 'class_create' %}">Create new class</a>
+{% endblock %}
