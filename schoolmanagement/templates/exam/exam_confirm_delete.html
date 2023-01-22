@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Delete Exam</h1>
+  <p>Are you sure you want to delete the exam "{{ object.name }}" on {{ object.date_time }}?</p>
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Confirm">
+    <a href="{% url 'exam_list' %}">Cancel</a>
+  </form>
+{% endblock %}

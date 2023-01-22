@@ -48,5 +48,21 @@ class Enrollment(models.Model):
 class Grade(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     class_name = models.ForeignKey(Class, on_delete=models.CASCADE)
-    grade = models.FloatField(max_digits=3, decimal_places=2)
-    text = models.TextField()
+    grade = models.FloatField()
+    note = models.TextField(default=True, null=True)
+
+class Exam(models.Model):
+    name = models.CharField(max_length=120)
+    format = models.CharField(max_length=20, choices=[("online", "Online"), ("in-person", "In-Person")], null=True)
+    date = models.DateField()
+    class_name = models.ForeignKey(Class, on_delete=models.CASCADE, null=True, blank=True,  default=1)
+
+    def __str__(self):
+        return self.name
+
+class Schedule(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE,  default=1 )
+    class_name = models.ForeignKey(Class, on_delete=models.CASCADE, null=True, default=1, blank=True)
+    exam = models.ForeignKey(Exam, on_delete=models.CASCADE, default=1)
+    date_time = models.DateTimeField(null=True)
+

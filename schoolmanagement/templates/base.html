@@ -11,11 +11,15 @@
         <a href="{% url 'teacher_list' %}"> Teachers</a>
         <a href="{% url 'student_list' %}"> Students </a>
         <a href="{% url 'enroll' %}"> Enroll </a>
+        <a href="{% url 'exam_list'%}"> Exams </a>
+        <a href="{% url 'schedule_list' %}"> Schedule</a>
     </nav>
 </header>
 
 <main>
     {% block content %}{% endblock %}
+
+
 </main>
 
 <footer>

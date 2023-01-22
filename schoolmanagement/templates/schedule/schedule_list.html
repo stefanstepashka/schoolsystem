@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Schedule</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Student</th>
+        <th>Class</th>
+        <th>Exam</th>
+        <th>Date & Time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for schedule in schedules %}
+        <tr>
+          <td>{{ schedule.student }}</td>
+          <td>{{ schedule.class_name }}</td>
+          <td>{{ schedule.exam }}</td>
+          <td>{{ schedule.date_time }}</td>
+          <td>
+            <a href="{% url 'schedule_update' schedule.id %}">Edit</a>
+            <a href="{% url 'schedule_delete' schedule.id %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'schedule_create' %}">Create New Schedule</a>
+{% endblock %}

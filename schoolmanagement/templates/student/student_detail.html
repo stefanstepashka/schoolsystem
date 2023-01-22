@@ -3,5 +3,17 @@
 {% block content %}
   <h1>{{ student.name }}</h1>
   <p>Employee ID: {{ student.student_id }}</p>
+ <h2>Enrolled Classes</h2>
+
+
+<ul>
+      {% for enrollment in enrollments %}
+
+      <li>{{ enrollment.class_name.name }} - {{ enrollment.teacher.name }}</li>
+
+  {% endfor %}
+</ul>
+
+  </ul>
   <a href="{% url 'student_update' pk=student.pk %}">Edit</a>
 {% endblock %}
